@@ -1,5 +1,5 @@
 // Service Worker para Buen Día Café - Club de Fidelización
-const CACHE_NAME = 'buendia-fidelizacion-v2.0.8';
+const CACHE_NAME = 'buendia-fidelizacion-v2.1.0';
 const ASSETS = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const ASSETS = [
   './app.js',
   './manifest.json',
   './icon.svg',
+  './granos de cafe pros.jpg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
   'https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js',

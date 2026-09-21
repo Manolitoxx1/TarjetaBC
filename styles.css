@@ -224,7 +224,7 @@ h1, h2, h3, h4, .brand-title {
    TARJETA PRINCIPAL DE FIDELIZACIÓN
    ========================================================== */
 .loyalty-card {
-  background: #FFE500;
+  background: url('granos de cafe pros.jpg') center/cover no-repeat;
   border-radius: var(--radius-xl);
   padding: 22px 20px;
   box-shadow: var(--shadow-card);
@@ -233,6 +233,21 @@ h1, h2, h3, h4, .brand-title {
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+/* Overlay oscuro semitransparente para legibilidad del texto */
+.loyalty-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* Asegurar que todo el contenido quede sobre el overlay */
+.loyalty-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .card-top {
@@ -250,8 +265,9 @@ h1, h2, h3, h4, .brand-title {
 .member-name {
   font-size: 20px;
   font-weight: 800;
-  color: #000000;
+  color: #ffffff;
   line-height: 1.2;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 /* Tier level indicator under name */
@@ -434,14 +450,15 @@ h1, h2, h3, h4, .brand-title {
 .progress-label {
   font-size: 12px;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .progress-count {
   font-size: 13px;
   font-weight: 800;
-  color: #000000;
-  background: rgba(0, 0, 0, 0.1);
+  color: #FFE500;
+  background: rgba(0, 0, 0, 0.5);
   padding: 2px 8px;
   border-radius: 8px;
 }
@@ -454,8 +471,8 @@ h1, h2, h3, h4, .brand-title {
 
 .stamp-slot {
   aspect-ratio: 1;
-  background: rgba(0, 0, 0, 0.06);
-  border: 2px dashed rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.35);
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
@@ -543,13 +560,13 @@ h1, h2, h3, h4, .brand-title {
 .stamp-badge-label {
   font-size: 9px;
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 2px;
   text-transform: uppercase;
 }
 
 .stamp-slot.active .stamp-badge-label {
-  color: #000000;
+  color: #FFE500;
   font-weight: 800;
 }
 

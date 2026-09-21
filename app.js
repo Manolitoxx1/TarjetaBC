@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const referralParam = urlParams.get('ref');
 
     if (referralParam) {
-        sessionStorage.setItem('buendia_referral_referrer', referralParam);
+        localStorage.setItem('buendia_referral_referrer', referralParam);
     }
 
     if (urlId) {
@@ -749,7 +749,7 @@ function initEventListeners() {
             } else {
                 // Crear nuevo socio
                 const newId = 'c_' + Math.random().toString(36).substr(2, 7);
-                const referrer = sessionStorage.getItem('buendia_referral_referrer') || null;
+                const referrer = localStorage.getItem('buendia_referral_referrer') || null;
 
                 const newCustomer = {
                     id: newId,
@@ -781,6 +781,8 @@ function initEventListeners() {
                                 db.ref(`customers/${refId}/stamps`).set(currentStamps + 1);
                             }
                         });
+                        // Limpiar el código de referido usado para que no se reutilice
+                        localStorage.removeItem('buendia_referral_referrer');
                     }
 
                     currentCustomerId = newId;
