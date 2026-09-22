@@ -722,7 +722,14 @@ function initEventListeners() {
         const phone = inputRegPhone.value.trim();
         const birthday = inputRegBirthday.value;
 
-        if (!name || !phone) return;
+        // Validar número de teléfono (debe tener dígitos además del prefijo)
+        const phoneWithoutPrefix = phone.replace('+56 9', '').trim();
+        if (phoneWithoutPrefix === '' || !/^\d+$/.test(phoneWithoutPrefix.replace(/\s/g, ''))) {
+            alert('debes llenar este campo');
+            return;
+        }
+
+        if (!name) return;
 
         // Buscar si el cliente ya existe por teléfono
         db.ref('customers').once('value').then((snap) => {
